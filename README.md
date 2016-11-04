@@ -13,13 +13,23 @@ Instructions: </br>
 8) Visualize fibers and clean outliers </br>
 9) Extract diffusion tensor metrics along fibers </br>
 
-(1) Setup computing environment
-We rely on several packages
-VISTASOFT matlab repository
-Freesurfer
-MRTrix
+(1) Setup computing environment </br>
+We rely on several software suites: </br> 
+VISTASOFT repository https://github.com/vistalab/vistasoft </br>
+FreeSurfer https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall </br>
+MRtrix 0.2 http://jdtournier.github.io/mrtrix-0.2/ </br>
+Helpful instructions here: http://web.stanford.edu/group/vista/cgi-bin/wiki/index.php/MrDiffusion
 
-(2) 
+(2) Setup directory structure </br>
+subject
+  subject_t1.nii.gz
+  raw
+    subject.nii.gz
+    subject.bvec
+    subject.bval
 
-(3) AcPc-align T1-weighted data
-Run mrAnatAverageAcpcNifti in matlab. You will be prompted to load 
+(3) AcPc-align T1-weighted data </br>
+Run mrAnatAverageAcpcNifti in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to define the output filename (subject_t1_acpc.nii.gz). </br>
+Use GUI to set the anterior commissure, posterior commissure, and midsagittal point high (superior) in the brain. </br>
+
+
