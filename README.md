@@ -52,7 +52,7 @@ Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009
 Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
-(i) Use mrDiffusion in matlab to visualize fibers on the T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
+(i) Use mrDiffusion in matlab to visualize fibers on the T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or enter cerebrospinal fluid).</br>
 (ii) Exclude outlier fibers with quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
 <b>(9) Extract diffusion tensor metrics along fiber</b></br>
