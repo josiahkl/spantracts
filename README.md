@@ -22,11 +22,11 @@ We rely on several software suites: </br>
 
 <b>(2) Setup directory structure </b></br>
 subject </br>
-  subject_t1.nii.gz </br>
-  raw </br>
-    <"subject">.nii.gz </br>
-    subject.bvec </br>
-    subject.bval </br>
+    subject_t1.nii.gz </br>
+    raw </br>
+      subject.nii.gz </br>
+      subject.bvec </br>
+      subject.bval </br>
 
 <b>(3) AcPc-align T1-weighted data </b></br>
 Run mrAnatAverageAcpcNifti in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to define the output filename (subject_t1_acpc.nii.gz). </br>
