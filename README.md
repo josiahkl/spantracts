@@ -29,7 +29,7 @@ subject </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject.bval </br>
 
 <b>(3) AcPc-align T1-weighted data </b></br>
-Run mrAnatAverageAcpcNifti in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to define the output filename (subject_t1_acpc.nii.gz). </br>
+Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to define the output filename (subject_t1_acpc.nii.gz). </br>
 Use GUI to set the anterior commissure, posterior commissure, and midsagittal point high (superior) in the brain. </br>
 
 <b>(4) Start FreeSurfer on AcPc T1</b>
@@ -38,3 +38,10 @@ Use GUI to set the anterior commissure, posterior commissure, and midsagittal po
 Run s_dtiInit.m
 
 <b>(6) Extract FreeSurfer ROIs</b></br>
+(i) Convert freesurfer segmentation from freesurfer space to acpc space:</br>
+mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
+(ii) Copy a2009seg2acpc.nii.gz to /subject/ROIs </br>
+(iii) Extract mat ROIs from freesurfer. Run s_dtiConvFSroi2mat.m </br>
+(iv) Create white matter mask. Run s_make_wmmask_fsseg_rh.m and s_make_wmmask_fsseg_lh.m </br>
+(v) Smooth and dilate ROIs. Run s_make_and_smooth_. </br>
+
