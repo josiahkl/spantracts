@@ -1,8 +1,3 @@
-<style type="text/css">
-<!--
-.tab { margin-left: 40px; }
--->
-</style>
 # spantracts
 
 This repository contains scripts to track fibers from the anterior insula to nucleus accumbens.
@@ -27,7 +22,7 @@ We rely on several software suites: </br>
 
 <b>(2) Setup directory structure </b></br>
 subject </br>
-<p class="tab">subject_t1.nii.gz </p></br>
+<p style="text-index: 40px">subject_t1.nii.gz </p></br>
     raw </br>
         subject.nii.gz </br>
         subject.bvec </br>
