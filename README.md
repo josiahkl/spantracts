@@ -43,16 +43,16 @@ Run s_dtiInit.m
 (i) Convert freesurfer segmentation from freesurfer space to acpc space:</br>
 Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
 (ii) Copy a2009seg2acpc.nii.gz to /subject/ROIs </br>
-(iii) Extract mat ROIs from freesurfer. Run s_dtiConvFSroi2mat.m </br>
+(iii) Extract relevant ROIs. Run s_dtiConvFSroi2mat.m </br>
 (iv) Create white matter mask. Run s_make_wmmask_fsseg_rh.m and s_make_wmmask_fsseg_lh.m </br>
-(v) Smooth and dilate ROIs. Run s_make_and_smooth_roi.m </br>
-(vi) Combine anterior and short gyrus of insula ROIs. Run s_merge_insula_rois.m </br>
+(v) Smooth ROIs. Run s_make_and_smooth_roi.m </br>
+(vi) Combine anterior and short gyrus insula ROIs. Run s_merge_insula_rois.m </br>
 
 <b>(7) Perform MRtrix tractography</b></br>
 Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
-(i) Use mrDiffusion in matlab to visualize fibers over T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
+(i) Use mrDiffusion in matlab to visualize fibers on the T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
 (ii) Exclude outlier fibers with quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
 <b>(9) Extract diffusion tensor metrics along fiber</b></br>
