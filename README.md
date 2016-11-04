@@ -1,17 +1,17 @@
 # spantracts
 
-This repository contains scripts to track fibers from the anterior insula to nucleus accumbens.
+This repository contains scripts to track fibers from the anterior insula to nucleus accumbens. Each matlab script is well commented, but for questions email josiah@stanford.edu
 
 <b>Instructions: </b></br>
-1) Setup computing environment </br>
-2) Setup directory structure </br>
-3) AcPc-align T1 data </br>
-4) Perform FreeSurfer on AcPc T1 </br>
-5) Preprocess DWI data </br>
-6) Extract FreeSurfer ROIs </br>
-7) Perform MRtrix tractography </br>
-8) Visualize fibers and clean outliers </br>
-9) Extract diffusion tensor metrics along fibers </br>
+(1) Setup computing environment </br>
+(2) Setup directory structure </br>
+(3) AcPc-align T1 data </br>
+(4) Perform FreeSurfer on AcPc T1 </br>
+(5) Preprocess DWI data </br>
+(6) Extract FreeSurfer ROIs </br>
+(7) Perform MRtrix tractography </br>
+(8) Visualize fibers and clean outliers </br>
+(9) Extract diffusion tensor metrics along fibers </br>
 
 <b>(1) Setup computing environment </b></br>
 We rely on several software suites: </br> 
@@ -33,6 +33,7 @@ Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data
 Use GUI to set the anterior commissure, posterior commissure, and midsagittal point high (superior) in the brain. </br>
 
 <b>(4) Start FreeSurfer on AcPc T1</b>
+Run in command line: recon-all -all -3T -s subject -i subject_t1_acpc.nii.gz
 
 <b>(5) Preprocess DWI data</b></br>
 Run s_dtiInit.m
@@ -49,11 +50,11 @@ mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2a
 <b>(7) Perform MRtrix tractography</b>
 Run s_mrtrix_track_ains_nacc </br>
 
-<b>(8) Visualize fibers and clean outliers</b>
+<b>(8) Visualize fibers and clean outliers</b></br>
 (i) Use mrDiffusion in matlab to visualize fibers on T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
-(ii) Exclude with quantitative criteria (e.g., ). Run s_clean_mbafiberoutlier_ains_nacc.m
+(ii) Exclude outlier fibers with quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
-<b>(9) </b>
-
+<b>(9) Extract diffusion tensor metrics along fibers</b></br>
+Run s_mrtrix_tractprofiles_ainsnacc.m
 
 
