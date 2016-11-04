@@ -5,11 +5,11 @@ This repository contains scripts to track fibers from the anterior insula to nuc
 <b>Instructions: </b></br>
 1) Setup computing environment </br>
 2) Setup directory structure </br>
-3) AcPc-align T1-weighted data </br>
-4) Start FreeSurfer on AcPc T1 </br>
+3) AcPc-align T1 data </br>
+4) Perform FreeSurfer on AcPc T1 </br>
 5) Preprocess DWI data </br>
 6) Extract FreeSurfer ROIs </br>
-7) Perform MRTrix tractography </br>
+7) Perform MRtrix tractography </br>
 8) Visualize fibers and clean outliers </br>
 9) Extract diffusion tensor metrics along fibers </br>
 
@@ -24,9 +24,9 @@ We rely on several software suites: </br>
 subject </br>
     subject_t1.nii.gz </br>
     raw </br>
-      subject.nii.gz </br>
-      subject.bvec </br>
-      subject.bval </br>
+        subject.nii.gz </br>
+        subject.bvec </br>
+        subject.bval </br>
 
 <b>(3) AcPc-align T1-weighted data </b></br>
 Run mrAnatAverageAcpcNifti in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to define the output filename (subject_t1_acpc.nii.gz). </br>
