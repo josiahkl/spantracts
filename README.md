@@ -33,8 +33,7 @@ Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data
 Use GUI to set the anterior commissure, posterior commissure, and a midsagittal point high (superior) in the brain. </br>
 
 <b>(4) Start FreeSurfer on AcPc T1</b></br>
-Set freesurfer environment and run in command line:</br>
-recon-all -all -s subject -i subject_t1_acpc.nii.gz
+Set freesurfer environment and run in command line: recon-all -all -s subject -i subject_t1_acpc.nii.gz
 
 <b>(5) Preprocess DWI data</b></br>
 Run s_dtiInit.m
