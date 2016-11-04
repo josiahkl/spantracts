@@ -22,9 +22,9 @@ We rely on several software suites: </br>
 
 <b>(2) Setup directory structure </b></br>
 subject </br>
-<p style="text-index: 40px">subject_t1.nii.gz </p></br>
-    raw </br>
-        subject.nii.gz </br>
+&nbsp;subject_t1.nii.gz</br>
+&nbsp;raw </br>
+&nbsp;subject.nii.gz </br>
         subject.bvec </br>
         subject.bval </br>
 
