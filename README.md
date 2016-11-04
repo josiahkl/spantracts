@@ -16,7 +16,7 @@ This repository contains scripts to track fibers from the anterior insula to nuc
 <b>(1) Setup computing environment </b></br>
 We rely on several software suites: </br> 
 <a href="https://github.com/vistalab/vistasoft">VISTASOFT</a></br>
-<a href="https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall">Freesurfer </a></br>
+<a href="https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall">FreeSurfer </a></br>
 <a href="http://jdtournier.github.io/mrtrix-0.2/">MRtrix 0.2</a></br>
 <a href="http://web.stanford.edu/group/vista/cgi-bin/wiki/index.php/MrDiffusion">Helpful instructions</a></br>
 
@@ -41,7 +41,7 @@ Run s_dtiInit.m
 
 <b>(6) Extract FreeSurfer ROIs</b></br>
 (i) Convert freesurfer segmentation from freesurfer space to acpc space:</br>
-Command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
+Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
 (ii) Copy a2009seg2acpc.nii.gz to /subject/ROIs </br>
 (iii) Extract mat ROIs from freesurfer. Run s_dtiConvFSroi2mat.m </br>
 (iv) Create white matter mask. Run s_make_wmmask_fsseg_rh.m and s_make_wmmask_fsseg_lh.m </br>
@@ -55,5 +55,5 @@ Run s_mrtrix_track_ains_nacc </br>
 (i) Use mrDiffusion in matlab to visualize fibers over T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
 (ii) Exclude outlier fibers with quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
-<b>(9) Extract diffusion tensor metrics along fibers</b></br>
+<b>(9) Extract diffusion tensor metrics along fiber</b></br>
 Run s_mrtrix_tractprofiles_ainsnacc.m
