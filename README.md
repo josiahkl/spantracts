@@ -1,8 +1,8 @@
 # spantracts
 
-This repository contains scripts to track fibers from the anterior insula to nucleus accumbens. Each matlab script is well commented, but for questions email josiah@stanford.edu
+This repository contains scripts to track fibers from the anterior insula to nucleus accumbens. Each matlab script is well commented, but feel free to email josiah@stanford.edu with questions.
 
-<b>Instructions: </b></br>
+<b>Workflow: </b></br>
 (1) Setup computing environment </br>
 (2) Setup directory structure </br>
 (3) AcPc-align T1 data </br>
@@ -18,7 +18,7 @@ We rely on several software suites: </br>
 <a href="https://github.com/vistalab/vistasoft">VISTASOFT</a></br>
 <a href="https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall">FreeSurfer </a></br>
 <a href="http://jdtournier.github.io/mrtrix-0.2/">MRtrix 0.2</a></br>
-<a href="http://web.stanford.edu/group/vista/cgi-bin/wiki/index.php/MrDiffusion">Helpful instructions</a></br>
+<a href="http://web.stanford.edu/group/vista/cgi-bin/wiki/index.php/MrDiffusion">Helpful instruction</a></br>
 
 <b>(2) Setup directory structure </b></br>
 subject </br>
@@ -34,13 +34,13 @@ Use GUI to set the anterior commissure, posterior commissure, and a midsagittal 
 
 <b>(4) Start FreeSurfer on AcPc T1</b></br>
 Set freesurfer environment and run in command line:</br>
-recon-all -all -3T -s subject -i subject_t1_acpc.nii.gz
+recon-all -all -s subject -i subject_t1_acpc.nii.gz
 
 <b>(5) Preprocess DWI data</b></br>
 Run s_dtiInit.m
 
 <b>(6) Extract FreeSurfer ROIs</b></br>
-(i) Convert freesurfer segmentation from freesurfer space to acpc space:</br>
+(i) Convert segmentation from freesurfer space to acpc space:</br>
 Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
 (ii) Copy a2009seg2acpc.nii.gz to /subject/ROIs </br>
 (iii) Extract relevant ROIs. Run s_dtiConvFSroi2mat.m </br>
@@ -53,7 +53,7 @@ Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
 (i) Use mrDiffusion in matlab to visualize fibers on the T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or enter cerebrospinal fluid).</br>
-(ii) Exclude outlier fibers with quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
+(ii) Exclude outlier fibers based on quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
 <b>(9) Extract diffusion tensor metrics along fiber</b></br>
-Run s_mrtrix_tractprofiles_ainsnacc.m
+Create csv with tract data for further analysis. Run s_mrtrix_tractprofiles_ainsnacc.m
