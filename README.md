@@ -48,7 +48,7 @@ Command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.
 (v) Smooth and dilate ROIs. Run s_make_and_smooth_roi.m </br>
 (vi) Combine anterior and short gyrus of insula ROIs. Run s_merge_insula_rois.m </br>
 
-<b>(7) Perform MRtrix tractography</b>
+<b>(7) Perform MRtrix tractography</b></br>
 Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
