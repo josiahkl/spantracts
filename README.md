@@ -29,18 +29,19 @@ subject </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject.bval </br>
 
 <b>(3) AcPc-align T1-weighted data </b></br>
-Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to define the output filename (subject_t1_acpc.nii.gz). </br>
-Use GUI to set the anterior commissure, posterior commissure, and midsagittal point high (superior) in the brain. </br>
+Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to set the output filename (subject_t1_acpc.nii.gz). </br>
+Use GUI to set the anterior commissure, posterior commissure, and a midsagittal point high (superior) in the brain. </br>
 
-<b>(4) Start FreeSurfer on AcPc T1</b>
-Run in command line: recon-all -all -3T -s subject -i subject_t1_acpc.nii.gz
+<b>(4) Start FreeSurfer on AcPc T1</b></br>
+Set freesurfer environment and run in command line:</br>
+recon-all -all -3T -s subject -i subject_t1_acpc.nii.gz
 
 <b>(5) Preprocess DWI data</b></br>
 Run s_dtiInit.m
 
 <b>(6) Extract FreeSurfer ROIs</b></br>
 (i) Convert freesurfer segmentation from freesurfer space to acpc space:</br>
-mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
+Command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
 (ii) Copy a2009seg2acpc.nii.gz to /subject/ROIs </br>
 (iii) Extract mat ROIs from freesurfer. Run s_dtiConvFSroi2mat.m </br>
 (iv) Create white matter mask. Run s_make_wmmask_fsseg_rh.m and s_make_wmmask_fsseg_lh.m </br>
@@ -51,10 +52,8 @@ mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2a
 Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
-(i) Use mrDiffusion in matlab to visualize fibers on T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
+(i) Use mrDiffusion in matlab to visualize fibers over T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or cross cerebrospinal fluid).</br>
 (ii) Exclude outlier fibers with quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
 <b>(9) Extract diffusion tensor metrics along fibers</b></br>
 Run s_mrtrix_tractprofiles_ainsnacc.m
-
-
