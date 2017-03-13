@@ -5,15 +5,15 @@ This repository contains scripts to track fibers from the anterior insula to nuc
 <b>Workflow: </b></br>
 (1) Set up computing environment </br>
 (2) Set up directory structure </br>
-(3) Align T1 to ACPC </br>
-(4) Perform FreeSurfer on ACPC-ed T1 </br>
+(3) Align T1-weighted anatomy to ACPC </br>
+(4) Run FreeSurfer on the ACPC-ed T1 </br>
 (5) Preprocess diffusion data </br>
 (6) Extract FreeSurfer ROIs </br>
-(7) Perform MRtrix tractography </br>
+(7) Run MRtrix tractography </br>
 (8) Visualize fibers and clean outliers </br>
 (9) Extract diffusion tensor metrics along fibers </br>
 
-<b>(1) Setup computing environment </b></br>
+<b>(1) Set up computing environment </b></br>
 We rely on several software suites: </br> 
 <a href="https://github.com/vistalab/vistasoft">VISTASOFT</a></br>
 <a href="https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall">FreeSurfer </a></br>
@@ -25,7 +25,7 @@ and matlab packages: </br>
 <a href="https://github.com/vistalab/knkutils">knkutils</a></br>
 <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm8/">SPM8</a></br>
 
-<b>(2) Setup directory structure </b></br>
+<b>(2) Set up directory structure </b></br>
 subject </br>
 &nbsp;&nbsp;&nbsp;&nbsp;subject_t1.nii.gz</br>
 &nbsp;&nbsp;&nbsp;&nbsp;raw </br>
@@ -33,14 +33,14 @@ subject </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject.bvec </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject.bval </br>
 
-<b>(3) AcPc-align T1-weighted data </b></br>
+<b>(3) Align T1-weighted anatomy to ACPC </b></br>
 Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to set the output filename (subject_t1_acpc.nii.gz). </br>
 Use GUI to set the anterior commissure, posterior commissure, and a midsagittal point high (superior) in the brain. </br>
 
-<b>(4) Start FreeSurfer on AcPc T1</b></br>
+<b>(4) Run FreeSurfer on the ACPC-ed T1</b></br>
 Set freesurfer environment, then run in command line: recon-all -all -s subject -i subject_t1_acpc.nii.gz
 
-<b>(5) Preprocess DWI data</b></br>
+<b>(5) Preprocess diffusion data</b></br>
 Run s_dtiInit.m
 
 <b>(6) Extract FreeSurfer ROIs</b></br>
@@ -52,7 +52,7 @@ Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009
 (v) Smooth ROIs. Run s_make_and_smooth_roi.m </br>
 (vi) Combine anterior and short gyrus insula ROIs. Run s_merge_insula_rois.m </br>
 
-<b>(7) Perform MRtrix tractography</b></br>
+<b>(7) Run MRtrix tractography</b></br>
 Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
