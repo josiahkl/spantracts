@@ -3,11 +3,11 @@
 This repository contains scripts to track fibers from the anterior insula to nucleus accumbens. Each matlab script is well commented, but feel free to email josiah@stanford.edu with questions.
 
 <b>Workflow: </b></br>
-(1) Setup computing environment </br>
-(2) Setup directory structure </br>
-(3) AcPc-align T1 data </br>
-(4) Perform FreeSurfer on AcPc T1 </br>
-(5) Preprocess DWI data </br>
+(1) Set up computing environment </br>
+(2) Set up directory structure </br>
+(3) Align T1 to ACPC </br>
+(4) Perform FreeSurfer on ACPC-ed T1 </br>
+(5) Preprocess diffusion data </br>
 (6) Extract FreeSurfer ROIs </br>
 (7) Perform MRtrix tractography </br>
 (8) Visualize fibers and clean outliers </br>
@@ -38,13 +38,13 @@ Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data
 Use GUI to set the anterior commissure, posterior commissure, and a midsagittal point high (superior) in the brain. </br>
 
 <b>(4) Start FreeSurfer on AcPc T1</b></br>
-Set freesurfer environment and run in command line: recon-all -all -s subject -i subject_t1_acpc.nii.gz
+Set freesurfer environment, then run in command line: recon-all -all -s subject -i subject_t1_acpc.nii.gz
 
 <b>(5) Preprocess DWI data</b></br>
 Run s_dtiInit.m
 
 <b>(6) Extract FreeSurfer ROIs</b></br>
-(i) Convert segmentation from freesurfer space to acpc space:</br>
+(i) Convert brain segmentation from freesurfer space to acpc space:</br>
 Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009s+aseg.mgz a2009seg2acpc.nii.gz</br>
 (ii) Copy a2009seg2acpc.nii.gz to /subject/ROIs </br>
 (iii) Extract relevant ROIs. Run s_dtiConvFSroi2mat.m </br>
