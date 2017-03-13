@@ -20,6 +20,11 @@ We rely on several software suites: </br>
 <a href="http://jdtournier.github.io/mrtrix-0.2/">MRtrix 0.2</a></br>
 <a href="http://web.stanford.edu/group/vista/cgi-bin/wiki/index.php/MrDiffusion">Helpful instruction</a></br>
 
+and matlab packages: </br>
+<a href="https://github.com/francopestilli/mba">Matlab Brain Anatomy</a></br>
+<a href="https://github.com/vistalab/knkutils">knkutils</a></br>
+<a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm8/">SPM8</a></br>
+
 <b>(2) Setup directory structure </b></br>
 subject </br>
 &nbsp;&nbsp;&nbsp;&nbsp;subject_t1.nii.gz</br>
