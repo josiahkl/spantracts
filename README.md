@@ -65,15 +65,16 @@ Create csv with tract data for further analysis. Run s_mrtrix_tractprofiles_ains
 
 
 # Use ConTrack to track MPFC-NAcc and VTA-NAcc fibers
-Workflow:
+
+##Workflow:
 (1-5) Same as above.
 
-(6) Define ROIs
-NAcc: use ROI from FreeSurfer, described above.
+###(6) Define ROIs
+NAcc: use ROI from FreeSurfer, same as above.
 MPFC: use mrDiffusion to manually place spherical ROI (5 mm diameter) in each hemisphere. Second gyrus in from front of the brain, and axially at the level of the genu of the corpus callosum.
 VTA: Use mrDiffusion to manually place spherical ROI (or consult Kelly Hennigan for automated method).
 
-(7) Perform ConTrack
+###(7) Perform ConTrack
 (i) Run tractography
 Run ctrBatchCreateContrackFiles.m, with parameters set to include your subject names, ROIs, number of fibers, max/min fiber length. This creates:
 (a) a shell script in each subject folder with command line code to run contrack.
@@ -88,4 +89,4 @@ Run ctrBatchScore.m, which will ask for .mat file created in (7i). This will cre
 
 (iv) Either run the script from (iiib), or run the script for each subject from (iiia).
 
-(8-9) Same as above.
+###(8-9) Same as above.
