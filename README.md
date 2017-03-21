@@ -66,27 +66,26 @@ Create csv with tract data for further analysis. Run s_mrtrix_tractprofiles_ains
 
 # Use ConTrack to track MPFC-NAcc and VTA-NAcc fibers
 
-##Workflow:
-(1-5) Same as above.
+<b>(1-5) Same as above</b></br>
 
-###(6) Define ROIs
-NAcc: use ROI from FreeSurfer, same as above.
-MPFC: use mrDiffusion to manually place spherical ROI (5 mm diameter) in each hemisphere. Second gyrus in from front of the brain, and axially at the level of the genu of the corpus callosum.
-VTA: Use mrDiffusion to manually place spherical ROI (or consult Kelly Hennigan for automated method).
+<b>(6) Define ROIs</b></br>
+NAcc: use ROI from FreeSurfer, same as above.</br>
+MPFC: use mrDiffusion to manually place spherical ROI (5 mm diameter) in each hemisphere. Second gyrus in from front of the brain, and axially at the level of the genu of the corpus callosum.</br>
+VTA: Use mrDiffusion to manually place spherical ROI (or consult Kelly Hennigan for automated method).</br>
 
-###(7) Perform ConTrack
-(i) Run tractography
-Run ctrBatchCreateContrackFiles.m, with parameters set to include your subject names, ROIs, number of fibers, max/min fiber length. This creates:
-(a) a shell script in each subject folder with command line code to run contrack.
-(b) one shell script that includes a line for each subject, which simply goes into subject directory to run subject level script above.
+<b>(7) Perform ConTrack</b></br>
+(i) Run tractography</br>
+Run ctrBatchCreateContrackFiles.m, with parameters set to include your subject names, ROIs, number of fibers, max/min fiber length. This creates:</br>
+(a) a shell script in each subject folder with command line code to run contrack.</br>
+(b) one shell script that includes a line for each subject, which simply goes into subject directory to run subject level script above.</br>
 
-(ii) Either run the script from (ib), or run the script for each subject from (ia).
+(ii) Either run the script from (ib), or run the script for each subject from (ia).</br>
 
-(iii) Score top fibers
-Run ctrBatchScore.m, which will ask for .mat file created in (7i). This will create:
-(a) a shell script in each subject folder with command line code to score fibers.
-(b) one shell script that includes a line for each subject, which simply goes into subject directory to run the subject level scoring script above.
+(iii) Score top fibers</br>
+Run ctrBatchScore.m, which will ask for .mat file created in (7i). This will create:</br>
+(a) a shell script in each subject folder with command line code to score fibers.</br>
+(b) one shell script that includes a line for each subject, which simply goes into subject directory to run the subject level scoring script above.</br>
 
-(iv) Either run the script from (iiib), or run the script for each subject from (iiia).
+(iv) Either run the script from (iiib), or run the script for each subject from (iiia).</br>
 
-###(8-9) Same as above.
+<b>(8-9) Same as above</b></br>
