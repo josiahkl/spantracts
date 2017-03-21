@@ -9,7 +9,7 @@ This repository contains scripts to track fibers from the anterior insula to nuc
 (4) Run FreeSurfer on the AC/PC-ed T1 </br>
 (5) Preprocess diffusion data </br>
 (6) Extract FreeSurfer ROIs </br>
-(7) Run MRtrix tractography </br>
+(7) Perform MRtrix tractography </br>
 (8) Visualize fibers and clean outliers </br>
 (9) Extract diffusion tensor metrics along fibers </br>
 
@@ -33,11 +33,11 @@ subject/ </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject.bvec </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject.bval </br>
 
-<b>(3) Align T1-weighted anatomy to AC/PC </b></br>
+<b>(3) Align T1-weighted anatomy to AC/PC space </b></br>
 Run mrAnatAverageAcpcNifti.m in matlab. You will be prompted to load the T1 data (subject_t1.nii.gz), and then to set the output filename (subject_t1_acpc.nii.gz). </br>
 Use GUI to set the anterior commissure, posterior commissure, and a midsagittal point high (superior) in the brain. </br>
 
-<b>(4) Run FreeSurfer on the ACPC-ed T1</b></br>
+<b>(4) Run FreeSurfer on the AC/PC-ed T1</b></br>
 Set freesurfer environment, then run in command line: recon-all -all -s subject -i subject_t1_acpc.nii.gz
 
 <b>(5) Preprocess diffusion data</b></br>
@@ -52,16 +52,15 @@ Run in command line: mri_convert -rl rawavg.mgz -rt nearest -odt int aparc.a2009
 (v) Smooth ROIs. Run s_make_and_smooth_roi.m </br>
 (vi) Combine anterior and short gyrus insula ROIs. Run s_merge_insula_rois.m </br>
 
-<b>(7) Run MRtrix tractography</b></br>
+<b>(7) Perform MRtrix tractography</b></br>
 Run s_mrtrix_track_ains_nacc </br>
 
 <b>(8) Visualize fibers and clean outliers</b></br>
-(i) Use mrDiffusion in matlab to visualize fibers on the T1. Check for abnormal fibers (e.g., fibers that cross hemispheres, or enter cerebrospinal fluid).</br>
+(i) Use mrDiffusion in matlab to visualize fibers on the T1. Check for abnormal fibers (e.g., cross hemispheres, enter cerebrospinal fluid, loop in many directions).</br>
 (ii) Exclude outlier fibers based on quantitative criteria (i.e., length and mahalanobis distance). Run s_clean_mbafiberoutlier_ains_nacc.m
 
 <b>(9) Extract diffusion tensor metrics along fiber</b></br>
 Create csv with tract data for further analysis. Run s_mrtrix_tractprofiles_ainsnacc.m
-
 
 
 # Use ConTrack to track MPFC-NAcc and VTA-NAcc
