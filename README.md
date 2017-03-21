@@ -63,7 +63,8 @@ Run s_mrtrix_track_ains_nacc </br>
 Create csv with tract data for further analysis. Run s_mrtrix_tractprofiles_ainsnacc.m
 
 
-# ===== Use ConTrack to track MPFC-NAcc and VTA-NAcc ===== #
+
+# Use ConTrack to track MPFC-NAcc and VTA-NAcc fibers
 Workflow:
 (1-5) Same as above.
 
