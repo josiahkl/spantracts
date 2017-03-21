@@ -73,18 +73,18 @@ NAcc: use ROI from FreeSurfer, same as above.</br>
 MPFC: use mrDiffusion to manually place spherical ROI (5 mm diameter) in each hemisphere. Second gyrus in from front of the brain, and axially at the level of the genu of the corpus callosum.</br>
 VTA: Use mrDiffusion to manually place spherical ROI (or consult Kelly Hennigan for automated method).</br>
 
-<b>(7) Perform ConTrack</b></br>
-(i) Run tractography</br>
-Run ctrBatchCreateContrackFiles.m, with parameters set to include your subject names, ROIs, number of fibers, max/min fiber length. This creates:</br>
+<b>(7) Run ConTrack</b></br>
+(i) Track fibers</br>
+Run ctrBatchCreateContrackFiles.m in matlab, with parameters set to include your subject names, ROIs, number of fibers, max/min fiber length. This creates:</br>
 (a) a shell script in each subject folder with command line code to run contrack.</br>
-(b) one shell script that includes a line for each subject, which simply goes into subject directory to run subject level script above.</br>
+(b) one shell script that includes command line code for each subject, which simply goes into the subject folder to run the subject level script above.</br>
 
 (ii) Either run the script from (ib), or run the script for each subject from (ia).</br>
 
 (iii) Score top fibers</br>
 Run ctrBatchScore.m, which will ask for .mat file created in (7i). This will create:</br>
 (a) a shell script in each subject folder with command line code to score fibers.</br>
-(b) one shell script that includes a line for each subject, which simply goes into subject directory to run the subject level scoring script above.</br>
+(b) one shell script that includes command line code for each subject, which simply goes into the subject folder to run the subject level scoring script above.</br>
 
 (iv) Either run the script from (iiib), or run the script for each subject from (iiia).</br>
 
