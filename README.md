@@ -1,6 +1,6 @@
 # span tracts
 
-This repository has scripts to track fibers between the anterior insula and nucleus accumbens (NAcc).  Each matlab script is commented, but feel free to email josiah@stanford.edu with questions. Instructions to track MPFC-NAcc and VTA-NAcc fibers are also below.
+This repository has scripts to track fibers between the anterior insula and nucleus accumbens (NAcc).  Each matlab script is commented, but feel free to email josiah@uark.edu with questions. Instructions to track MPFC-NAcc and VTA-NAcc fibers are also below.
 
 <b>Workflow: </b></br>
 (1) Set up computing environment </br>
